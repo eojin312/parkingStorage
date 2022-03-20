@@ -23,7 +23,13 @@ class TestApplicationTest {
         Member member = memberInfo.toEntity();
 
         Member save = memberRepository.save(member);
+
         // then
         assertNotNull(save);
+    }
+
+    @Test
+    void findAll () {
+        assertNotNull(memberRepository.findAll());
     }
 }
