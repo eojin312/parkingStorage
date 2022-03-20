@@ -32,4 +32,9 @@ class TestApplicationTest {
     void findAll () {
         assertNotNull(memberRepository.findAll());
     }
+
+    @Test
+    void findbyId () {
+        assertNotNull(memberRepository.findById(1L));
+    }
 }
