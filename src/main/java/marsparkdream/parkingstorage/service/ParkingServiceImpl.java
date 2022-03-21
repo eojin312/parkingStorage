@@ -8,6 +8,7 @@ import marsparkdream.parkingstorage.service.serviceInterface.ParkingService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -22,12 +23,15 @@ public class ParkingServiceImpl implements ParkingService {
         return parkingRepository.save(parking.toEntity());
     }
 
+    /**
+     * 주차장 정보 전체
+     */
     @Override
     public List<Parking> findAll() {
         return parkingRepository.findAll();
     }
 
-    /**
-     * 주차장 정보 전체
-     */
+    public Optional<Parking> findById(Long parkingId) {
+        return parkingRepository.findById(parkingId);
+    }
 }
