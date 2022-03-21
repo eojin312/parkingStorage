@@ -11,17 +11,15 @@ import java.time.LocalDateTime;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-@Builder(builderMethodName = "memberBuilder")
+@Builder(builderMethodName = "parkingBuilder")
 public class Parking {
 
-    /**
-     * 차가 여러 대였다면, 아이디 의미가 컸을텐데
-     */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
 
+    // 주차장 정보 (EX. 1층 / 1.5층 / 2층 ...)
     @Column(name = "parking", nullable = false)
     private String parking;
 }
