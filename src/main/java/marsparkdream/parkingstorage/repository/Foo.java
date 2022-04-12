@@ -37,10 +37,18 @@ public class Foo {
     }
 
     public int doNow() {
-        int baseNumber = 10; // 이러면 순수함수가 아님 (문법적으로 가능)
+        final int baseNumber = 10; // 이러면 순수함수가 아님 (문법적으로 가능) final 로 가정
         DoRun doRun = (number) -> {
             return number + baseNumber;
         };
+        // baseNumber = 1;  // final 이 선언되지않아도 위에 변수를 final 로 가정하고 선언했기때문에 값 변경 불가
+        return doRun.doThat(1);
+    }
+
+    // 위 코드를 더 간단히 줄이면
+    public int doing() {
+        int baseNumber = 10;
+        DoRun doRun = number -> number + baseNumber;
         return doRun.doThat(1);
     }
 }
