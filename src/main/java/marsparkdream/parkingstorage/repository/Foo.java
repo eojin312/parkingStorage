@@ -1,5 +1,10 @@
 package marsparkdream.parkingstorage.repository;
 
+import lombok.extern.slf4j.Slf4j;
+
+import java.util.function.Function;
+
+@Slf4j
 public class Foo {
 
 
@@ -50,5 +55,21 @@ public class Foo {
         int baseNumber = 10;
         DoRun doRun = number -> number + baseNumber;
         return doRun.doThat(1);
+    }
+
+    // Function <T, R> 살펴보기
+    public int doGo() {
+        Plus10 plus10 = new Plus10();
+        Integer apply = plus10.apply(1);
+        log.info("+10 : {}", apply);
+        return apply;
+    }
+
+    // 인터페이스 사용이 아닌 람다로 바로 구현해서 사용
+    public int doGoingNow() {
+        Function<Integer, Integer> plus10 = (i) -> i + 10;
+        Integer functionApply = plus10.apply(1);
+        log.info("function apply : {}", functionApply);
+        return functionApply;
     }
 }
