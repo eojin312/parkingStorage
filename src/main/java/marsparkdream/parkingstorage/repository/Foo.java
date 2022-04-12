@@ -72,4 +72,19 @@ public class Foo {
         log.info("function apply : {}", functionApply);
         return functionApply;
     }
+
+    public Function<Integer, Integer> justDoing() {
+        Function<Integer, Integer> plus10 = (i) -> i + 10;
+        Function<Integer, Integer> multiply2 = (i) -> i * 2;
+
+        Function<Integer, Integer> multiply2AndPlus10 = plus10.compose(multiply2);
+        return multiply2AndPlus10;
+    }
+
+    public Function<Integer, Integer> justSomthing() {
+        Function<Integer, Integer> plus10 = (i) -> i + 10;
+        Function<Integer, Integer> multiply2 = (i) -> i * 2;
+
+        return plus10.andThen(multiply2);
+    }
 }
