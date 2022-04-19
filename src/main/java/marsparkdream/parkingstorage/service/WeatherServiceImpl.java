@@ -18,17 +18,4 @@ public class WeatherServiceImpl implements WeatherService {
 
     @Value("${weather.secretKey}")
     private String secretKey;
-
-    private final WebClient webClient;
-
-    private void create() {
-        webClient.get()
-                .uri(url + secretKey)
-                .accept(MediaType.APPLICATION_JSON)
-                .retrieve()
-                .bodyToMono(String.class)
-                .flux()
-                .toStream();
-    }
-
 }
