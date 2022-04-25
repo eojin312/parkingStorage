@@ -21,4 +21,7 @@ public class Member {
 
     @Column(name = "address")
     private String address;
+
+    @Column (name = "money")
+    private String money;
 }
