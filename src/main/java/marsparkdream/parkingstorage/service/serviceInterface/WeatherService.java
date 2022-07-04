@@ -5,5 +5,5 @@ import reactor.core.publisher.Mono;
 
 public interface WeatherService {
 
-    Mono<WeatherDto> getWeather();
+    WeatherDto getWeather();
 }

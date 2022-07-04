@@ -5,9 +5,12 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.4</version>
+        <version>2.6.6</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
+
+
     <groupId>marsparkdream</groupId>
     <artifactId>parkingStorage</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -15,15 +18,12 @@
     <description>parkingStorage</description>
     <properties>
         <java.version>11</java.version>
+        <version.netty>4.1.59.Final</version.netty>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -86,7 +86,13 @@
             <version>2.7.0</version>
         </dependency>
 
-
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-resolver-dns-native-macos</artifactId>
+            <version>${version.netty}</version>
+            <scope>runtime</scope>
+            <classifier>osx-x86_64</classifier>
+        </dependency>
     </dependencies>
 
     <build>
@@ -105,5 +111,20 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>local</id>
+            <dependencies>
+                <dependency>
+                    <groupId>io.netty</groupId>
+                    <artifactId>netty-resolver-dns-native-macos</artifactId>
+                    <version>${version.netty}</version>
+                    <scope>runtime</scope>
+                    <classifier>osx-x86_64</classifier>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
 
 </project>
