@@ -29,10 +29,14 @@ public class WeatherServiceImpl implements WeatherService {
     @Description("여기서 연동해볼거임 - Test 는 MockBean")
     public WeatherDto getWeather() {
         WebClient client = WebClient.builder().baseUrl(url).build();
+
         WeatherDto localToWeather = client.get().uri("?lat=37.50070294506123&lon=126.92404986517386&appid=" + secretKey)
                 .retrieve()
                 .bodyToMono(WeatherDto.class)
                 .block();
+
+        // TODO : Post 는 이렇게 ..? 테스트 해보기
+        // client.post().uri("").body().cookies().retrieve().bodyToMono()
         return localToWeather;
     }
 }
