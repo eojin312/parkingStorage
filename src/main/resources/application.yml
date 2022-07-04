@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/parking?serverTimezone=UTC&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/ejlee?serverTimezone=UTC&characterEncoding=UTF-8
     username: root
-    password: Dldjwls02!
+    password: 1234
 
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
@@ -25,5 +25,5 @@ spring:
             sql:
               BasicBinder: TRACE
 weather:
-  url: "https://api.openweathermap.org/"
+  url: "https://api.openweathermap.org//data/2.5/weather"
   secretKey: "20a49955dbcdc99ad6cfbaf22af8c3ee"
