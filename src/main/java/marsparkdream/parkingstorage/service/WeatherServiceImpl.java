@@ -27,12 +27,9 @@ public class WeatherServiceImpl implements WeatherService {
 
     @Override
     @Description("여기서 연동해볼거임 - Test 는 MockBean")
-     /*
-       WebClient 로 통신해보기
-     */
     public WeatherDto getWeather() {
         WebClient client = WebClient.builder().baseUrl(url).build();
-        WeatherDto localToWeather = client.get().uri("?lat=37.50070294506123&lon=126.92404986517386&appid=20a49955dbcdc99ad6cfbaf22af8c3ee")
+        WeatherDto localToWeather = client.get().uri("?lat=37.50070294506123&lon=126.92404986517386&appid=" + secretKey)
                 .retrieve()
                 .bodyToMono(WeatherDto.class)
                 .block();
