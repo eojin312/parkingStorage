@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import marsparkdream.parkingstorage.Model.WeatherReq;
 import marsparkdream.parkingstorage.Model.dto.WeatherDto;
 import marsparkdream.parkingstorage.annotation.Description;
+import marsparkdream.parkingstorage.dto.WeatherReqMockData;
 import marsparkdream.parkingstorage.service.serviceInterface.WeatherService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -56,7 +57,7 @@ class WeatherServiceImplTest {
     @Test
     @DisplayName("각_다른_값으로_반복하면서_테스트하기")
     @ParameterizedTest
-    @ValueSource()
+    @ValueSource(classes = {WeatherReqMockData.class})
     public void 각_다른_값으로_반복하면서_테스트하기 () {
         // given
 
