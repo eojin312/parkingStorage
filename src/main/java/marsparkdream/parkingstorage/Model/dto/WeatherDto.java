@@ -17,19 +17,19 @@ import java.util.List;
 @Description("날씨 WebFlux 통신")
 public class WeatherDto {
 
-    private Coord coord;
-    private List<Weather> weather;
-    private String base;
-    private Main main;
-    private int visibility;
-    private Wind wind;
-    private Clouds clouds;
-    private int dt;
-    private Sys sys;
-    private int timezone;
-    private int id;
-    private String name;
-    private int cod;
+    public Coord coord;
+    public List<Weather> weather;
+    public String base;
+    public Main main;
+    public int visibility;
+    public Wind wind;
+    public Clouds clouds;
+    public int dt;
+    public Sys sys;
+    public int timezone;
+    public int id;
+    public String name;
+    public int cod;
 
     @Getter
     @Builder
@@ -37,7 +37,7 @@ public class WeatherDto {
     @AllArgsConstructor
     @ToString
     public static class Clouds{
-        private int all;
+        public int all;
     }
 
     @Getter
@@ -46,8 +46,8 @@ public class WeatherDto {
     @AllArgsConstructor
     @ToString
     public static class Coord{
-        private double lon;
-        private double lat;
+        public double lon;
+        public double lat;
     }
 
     @Getter
@@ -56,14 +56,14 @@ public class WeatherDto {
     @AllArgsConstructor
     @ToString
     public static class Main{
-        private double temp;
-        private double feels_like;
-        private double temp_min;
-        private double temp_max;
-        private int pressure;
-        private int humidity;
-        private int sea_level;
-        private int grnd_level;
+        public double temp;
+        public double feels_like;
+        public double temp_min;
+        public double temp_max;
+        public int pressure;
+        public int humidity;
+        public int sea_level;
+        public int grnd_level;
     }
 
     @Getter
@@ -72,11 +72,11 @@ public class WeatherDto {
     @AllArgsConstructor
     @ToString
     public static class Sys {
-        private int type;
-        private int id;
-        private String country;
-        private int sunrise;
-        private int sunset;
+        public int type;
+        public int id;
+        public String country;
+        public int sunrise;
+        public int sunset;
     }
 
     @Getter
@@ -85,10 +85,10 @@ public class WeatherDto {
     @AllArgsConstructor
     @ToString
     public static class Weather {
-        private int id;
-        private String main;
-        private String description;
-        private String icon;
+        public int id;
+        public String main;
+        public String description;
+        public String icon;
     }
 
     @Getter
@@ -97,8 +97,8 @@ public class WeatherDto {
     @AllArgsConstructor
     @ToString
     public static class Wind {
-        private double speed;
-        private int deg;
-        private double gust;
+        public double speed;
+        public int deg;
+        public double gust;
     }
 }
