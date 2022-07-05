@@ -1,9 +1,9 @@
 package marsparkdream.parkingstorage.service.serviceInterface;
 
+import marsparkdream.parkingstorage.Model.WeatherReq;
 import marsparkdream.parkingstorage.Model.dto.WeatherDto;
-import reactor.core.publisher.Mono;
 
 public interface WeatherService {
 
-    WeatherDto getWeather();
+    WeatherDto getWeather(WeatherReq weatherReq);
 }

@@ -2,6 +2,7 @@ package marsparkdream.parkingstorage.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import marsparkdream.parkingstorage.Model.WeatherReq;
 import marsparkdream.parkingstorage.Model.dto.WeatherDto;
 import marsparkdream.parkingstorage.annotation.Description;
 import marsparkdream.parkingstorage.service.serviceInterface.WeatherService;
@@ -27,10 +28,10 @@ public class WeatherServiceImpl implements WeatherService {
 
     @Override
     @Description("여기서 연동해볼거임 - Test 는 MockBean")
-    public WeatherDto getWeather() {
+    public WeatherDto getWeather(WeatherReq weatherReq) {
         WebClient client = WebClient.builder().baseUrl(url).build();
 
-        WeatherDto localToWeather = client.get().uri("?lat=37.50070294506123&lon=126.92404986517386&appid=" + secretKey)
+        WeatherDto localToWeather = client.get().uri("?lat=" + weatherReq.getLat() + "&lon=" + weatherReq.getLon() + "&appid=" + secretKey)
                 .retrieve()
                 .bodyToMono(WeatherDto.class)
                 .block();
