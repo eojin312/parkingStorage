@@ -1,6 +1,5 @@
 package marsparkdream.parkingstorage.service;
 
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import marsparkdream.parkingstorage.Model.WeatherReq;
 import marsparkdream.parkingstorage.Model.dto.HomeReq;
@@ -11,11 +10,14 @@ import marsparkdream.parkingstorage.service.serviceInterface.WeatherService;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
 @Slf4j
 public class HomeServiceImpl implements HomeService {
 
     private final WeatherService weatherService;
+
+    public HomeServiceImpl(WeatherService weatherService) {
+        this.weatherService = weatherService;
+    }
 
 
     @Override
