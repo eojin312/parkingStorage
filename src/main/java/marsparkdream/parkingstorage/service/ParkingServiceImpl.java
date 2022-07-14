@@ -19,8 +19,8 @@ public class ParkingServiceImpl implements ParkingService {
     /**
      * 주차장 정보 등록/수정
      */
-    public Parking parkingSave(ParkingDto parkingDto) {
-        return parkingRepository.save(parkingDto.toEntity());
+    public Parking parkingSave(ParkingDto parkingRequestDto) {
+        return parkingRepository.save(parkingRequestDto.toEntity());
     }
 
     /**
